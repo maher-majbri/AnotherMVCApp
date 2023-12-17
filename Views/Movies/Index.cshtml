@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AnotherMVCApp.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p class="text-center">
+    <a asp-action="Create">Create New</a>
+</p> 
+<div class="container">
+<div class="row">
+
+    @foreach (var item in Model) {
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="photos/@item.Photo" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Genre</p>
+                    <p class="card-text text-danger display-3">@item.Price</p>
+                    <a asp-action="details" class="btn btn-primary" asp-route-id="@item.Id">Go See Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>
+ 
